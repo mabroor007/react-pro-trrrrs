@@ -19,9 +19,9 @@ interface Location {
 }
 
 export const usePostsPage = (location: Location) => {
-  console.log(location.search);
   let res: string[] = [];
   if (location.search) {
+    // Just some crapy parsing
     res = location.search.split("?")[1].split("=");
   }
   return { res };

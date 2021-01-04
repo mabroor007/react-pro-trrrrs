@@ -6,7 +6,7 @@ const Posts: React.FC<Props> = ({ match, location }) => {
   console.log(res);
 
   return (
-    <div>
+    <div className="win">
       <h1>Posts</h1>
       <p>{location.search && <span>{location.search}</span>}</p>
     </div>

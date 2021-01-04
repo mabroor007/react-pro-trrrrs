@@ -5,7 +5,7 @@ export const About: React.FC<AboutPageProps> = ({ location }) => {
   // console.log("Logging location details from About page:", location);
 
   return (
-    <div>
+    <div className="win">
       <h1>About Page</h1>
       {location.state && <h4>{location.state.name}</h4>}
       <ul>
