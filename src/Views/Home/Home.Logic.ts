@@ -1,4 +1,7 @@
+import { useDispatch } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
+import { useTypedSelectorHook } from "../../Store/store";
+import { logInUserAction } from "../../Store/Users/actions";
 import { AboutPageReachHandler } from "../About/About.Logic";
 import { TodosPageReachHandler } from "../Todos/Todos.Logic";
 
@@ -15,6 +18,8 @@ interface History {
 
 // Hook for Homepage
 export const useHomePage = (history: History) => {
+  const user = useTypedSelectorHook((state) => state.user);
+  const dispatch = useDispatch();
   // Event listener for Button that takes us to About Page and passes data as well
   // This function is necessary because we can not call hooks here as they should only be called is components
   const handleGoToAboutPageClick = (
@@ -35,5 +40,9 @@ export const useHomePage = (history: History) => {
     return history.push(path);
   };
 
-  return { handleGoToAboutPageClick, handleStart };
+  const handleLogin = () => {
+    dispatch(logInUserAction());
+  };
+
+  return { handleGoToAboutPageClick, handleStart, user, handleLogin };
 };

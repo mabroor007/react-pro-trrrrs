@@ -6,6 +6,7 @@ interface BTNProps {
 export const Button = styled.button<BTNProps>`
   padding: 1rem;
   font-family: Helvetica, sans-serif;
+  color: white;
   border: none;
   border-radius: 5px;
   background-color: ${(props) => props.background};

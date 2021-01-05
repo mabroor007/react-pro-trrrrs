@@ -1,9 +1,4 @@
 import { HomeProps, useHomePage } from "./Home.Logic";
-// import {
-//   HEAD,
-//   PStyled,
-//   Button,
-// } from "../../Components/StyledComponents/StyledComponents";
 import {
   MainContent,
   MainTitle,
@@ -11,13 +6,20 @@ import {
   StartButton,
   StartSvg,
 } from "../../Components/StyledComponents/App.Styled";
+import { Button } from "../../Components/StyledComponents/StyledComponents";
 
 export const Home: React.FC<HomeProps> = ({ history }) => {
-  const { handleStart } = useHomePage(history);
+  const { handleStart, user, handleLogin } = useHomePage(history);
   return (
     <Page>
       <MainContent>
         <MainTitle>Mabroor Ahmad</MainTitle>
+        <pre>
+          <code>{JSON.stringify(user)}</code>
+        </pre>
+        <Button onClick={handleLogin} background="#333" color="white">
+          Login
+        </Button>
         <StartButton onClick={handleStart}>
           <StartSvg viewBox="0 0 23 30" fill="#fff">
             <path

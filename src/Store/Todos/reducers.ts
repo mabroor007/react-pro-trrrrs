@@ -25,7 +25,7 @@ export function todosReducer(
         todos: [
           ...state.todos,
           {
-            id: state.todos.length,
+            id: Math.random(),
             task: (action as CreateTodoAction).todo,
             done: false,
           },
